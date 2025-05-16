@@ -1,0 +1,70 @@
+nexstep/
+├── client/                      # Frontend React application
+│   ├── public/                  # Public assets
+│   │   ├── index.html
+│   │   ├── favicon.ico
+│   │   └── assets/              # Images, icons, etc.
+│   ├── src/
+│   │   ├── components/          # Reusable components
+│   │   │   ├── auth/            # Authentication components
+│   │   │   ├── dashboard/       # Dashboard components
+│   │   │   ├── roadmaps/        # Roadmap components 
+│   │   │   ├── progress/        # Progress tracking components
+│   │   │   ├── career/          # Career recommendation components
+│   │   │   └── common/          # Common UI components
+│   │   ├── pages/               # Main page components
+│   │   │   ├── Landing.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── RoadmapView.jsx
+│   │   │   ├── ProgressTracker.jsx
+│   │   │   └── CareerRecommender.jsx
+│   │   ├── context/             # React context for state management
+│   │   │   ├── AuthContext.js
+│   │   │   └── UserContext.js
+│   │   ├── services/            # API service classes
+│   │   │   ├── api.js           # Base API config
+│   │   │   ├── auth.service.js
+│   │   │   ├── roadmap.service.js
+│   │   │   └── progress.service.js
+│   │   ├── utils/               # Utility functions
+│   │   ├── styles/              # CSS/SCSS files
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   └── routes.js            # App routing
+│   ├── package.json
+│   └── README.md
+│
+├── server/                      # Backend Node.js/Express application
+│   ├── config/                  # Configuration files
+│   │   ├── db.js                # Database connection
+│   │   └── passport.js          # Auth configuration
+│   ├── controllers/             # Route controllers
+│   │   ├── auth.controller.js
+│   │   ├── user.controller.js
+│   │   ├── roadmap.controller.js
+│   │   └── progress.controller.js
+│   ├── models/                  # MongoDB models
+│   │   ├── User.js
+│   │   ├── Roadmap.js
+│   │   ├── Resource.js
+│   │   ├── Node.js
+│   │   └── Progress.js
+│   ├── routes/                  # API routes
+│   │   ├── auth.routes.js
+│   │   ├── user.routes.js
+│   │   ├── roadmap.routes.js
+│   │   └── progress.routes.js
+│   ├── middleware/              # Custom middleware
+│   │   ├── auth.middleware.js
+│   │   └── validation.middleware.js
+│   ├── utils/                   # Utility functions
+│   │   ├── helpers.js
+│   │   └── recommendations.js   # Career recommendation logic
+│   ├── server.js                # Entry point
+│   ├── package.json
+│   └── README.md
+│
+├── .gitignore
+├── package.json                 # Root package.json for project-wide scripts
+└── README.md                    # Project documentation
