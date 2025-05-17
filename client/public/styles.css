@@ -1,0 +1,360 @@
+:root {
+    --primary-color: #121212;
+    --accent-color: #4CAF50;
+    --text-light: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --border-color: #333;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+.navbar-brand span {
+    color: var(--accent-color);
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #3d8b40;
+}
+
+.btn-outline-light {
+    border-color: var(--text-light);
+    color: var(--text-light);
+}
+.btn-outline-light:hover {
+    background-color: var(--text-light);
+    color: var(--primary-color);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.card-title {
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.card-text {
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.dropdown-item {
+    color: var(--text-light) !important;
+    padding: 8px 20px;
+}
+
+.text-muted {
+    color: var(--text-light) !important;
+    opacity: 0.8;
+}
+
+.card-header {
+    background-color: rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.progress {
+    height: 10px;
+    background-color: #333;
+}
+.progress-bar {
+    background-color: var(--accent-color);
+}
+
+/* Auth Page Styles */
+.auth-container {
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+.auth-tabs {
+    margin-bottom: 20px;
+}
+
+.auth-tabs .nav-link {
+    color: var(--text-light);
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    padding: 10px 20px;
+}
+
+.auth-tabs .nav-link.active {
+    background-color: transparent;
+    border-bottom: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.auth-form {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.auth-form .form-control {
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    padding: 12px 15px;
+}
+
+.auth-form .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+    border-color: var(--accent-color);
+}
+
+.auth-form .btn {
+    padding: 12px 15px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.auth-divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.auth-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    z-index: 1;
+}
+
+.auth-divider span {
+    background-color: var(--card-bg);
+    padding: 0 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.social-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.google-btn {
+    background-color: #DB4437;
+    color: white;
+    border: none;
+}
+
+.google-btn:hover {
+    background-color: #c53929;
+    color: white;
+}
+
+.message-area {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.message-area.error {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #ff6b6b;
+}
+
+.message-area.success {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #69db7c;
+}
+
+/* Landing Page Styles */
+.hero-section {
+    padding: 100px 0;
+    background-color: var(--primary-color);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.feature-section {
+    padding: 80px 0;
+    background-color: var(--card-bg);
+}
+
+.feature-card {
+    text-align: center;
+    padding: 30px;
+    height: 100%;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.testimonial-section {
+    padding: 80px 0;
+}
+
+.testimonial-card {
+    padding: 30px;
+    text-align: center;
+    height: 100%;
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.testimonial-quote {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.cta-section {
+    padding: 80px 0;
+    background-color: var(--card-bg);
+    text-align: center;
+}
+
+.cta-section h2 {
+    margin-bottom: 30px;
+}
+
+footer {
+    margin-top: auto;
+    background-color: var(--card-bg);
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Dashboard Specific Styles */
+.dashboard-container {
+    padding: 30px 0;
+}
+
+.user-profile {
+    text-align: center;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 40px;
+    color: white;
+}
+
+.roadmap-item {
+    border-left: 3px solid var(--accent-color);
+    padding-left: 15px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.resource-item {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.resource-item .badge {
+    margin-left: 10px;
+}
+
+.loading-spinner {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .auth-container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+    
+    .feature-card, .testimonial-card {
+        margin-bottom: 20px;
+    }
+}

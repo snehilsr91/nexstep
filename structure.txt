@@ -43,26 +43,27 @@ nexstep/
 │   │   ├── auth.controller.js
 │   │   ├── user.controller.js
 │   │   ├── roadmap.controller.js
-│   │   ├── tag.controller.js
+│   │   ├── pathitem.controller.js
 │   │   ├── resource.controller.js
 │   │   ├── rating.controller.js
 │   │   └── progress.controller.js
 │   ├── models/                  # MongoDB models
 │   │   ├── User.js
 │   │   ├── Roadmap.js
+│   │   ├── Goal.js
 │   │   ├── Resource.js
 │   │   ├── PathItem.js
-│   │   ├── Tag.js
-│   │   ├── UserResource.js
+│   │   ├── Rating.js
 │   │   └── Progress.js
 │   ├── routes/                  # API routes
 │   │   ├── auth.routes.js
 │   │   ├── user.routes.js
 │   │   ├── rating.routes.js
 │   │   ├── career.routes.js
-│   │   ├── tag.routes.js
+│   │   ├── goal.routes.js
 │   │   ├── roadmap.routes.js
 │   │   ├── resource.routes.js
+│   │   ├── pathItem.routes.js
 │   │   └── progress.routes.js
 │   ├── middleware/              # Custom middleware
 │   │   ├── auth.middleware.js
@@ -74,6 +75,7 @@ nexstep/
 │   ├── package.json
 │   └── README.md
 │
+├── .env
 ├── .gitignore
 ├── package.json                 # Root package.json for project-wide scripts
 └── README.md                    # Project documentation

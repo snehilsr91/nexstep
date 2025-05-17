@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexStep - My Progress</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .progress-header {
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        
+        .progress-summary {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .progress-stat {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .progress-stat .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .progress-stat .label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .roadmap-progress {
+            margin-bottom: 30px;
+        }
+        
+        .roadmap-progress .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .path-item-progress {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .path-item-progress:before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+        
+        .resource-progress {
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .resource-progress .completed {
+            color: var(--accent-color);
+        }
+        
+        .resource-progress .incomplete {
+            color: #aaa;
+        }
+        
+        .progress-indicator {
+            position: absolute;
+            left: -3px;
+            top: 15px;
+            bottom: -20px;
+            width: 3px;
+            background-color: var(--accent-color);
+            z-index: 0;
+        }
+        
+        .last-item .progress-indicator {
+            display: none;
+        }
+        
+        .completion-date {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="landing.html">Nex<span>Step</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="roadmapsLink">Roadmaps</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="goals.html">Goals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="progress.html">My Progress</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                            <i class="fas fa-user me-2"></i><span id="username">User</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" id="profileLink">Profile</a></li>
+                            <li><a class="dropdown-item" href="#" id="settingsLink">Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div class="container mt-4" id="mainContent">
+        <div class="progress-header">
+            <h1>My Learning Progress</h1>
+            <p>Track your journey through roadmaps and learning resources.</p>
+        </div>
+
+        <div class="progress-summary">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="progress-stat">
+                        <div class="number" id="totalRoadmaps">0</div>
+                        <div class="label">Roadmaps</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress-stat">
+                        <div class="number" id="totalResources">0</div>
+                        <div class="label">Resources</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress-stat">
+                        <div class="number" id="completedResources">0</div>
+                        <div class="label">Completed</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress-stat">
+                        <div class="number" id="overallProgress">0%</div>
+                        <div class="label">Overall Progress</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="roadmapProgressList">
+        </div>
+
+        <div id="noProgressMessage" style="display: none;">
+            <div class="text-center py-5">
+                <i class="fas fa-chart-line fa-4x mb-3 text-muted"></i>
+                <h3>No Progress Yet</h3>
+                <p>Start learning by selecting a goal and following a roadmap.</p>
+                <div class="mt-4">
+                    <a href="goals.html" class="btn btn-primary me-2">Browse Goals</a>
+                    <a href="dashboard.html" class="btn btn-outline-light">Go to Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center mt-5">
+        <div class="container">
+            <p>&copy; 2023 NexStep. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="progress.js"></script>
+</body>
+</html>

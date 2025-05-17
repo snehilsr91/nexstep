@@ -1,69 +1,69 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 
-const skillLevelSchema = new Schema({
-    skill: {
-        type: Schema.Types.ObjectId,
-        ref: 'Tag',
-        required: true,
-    },
-    level: {
-        type: String,
-        enum: ['Beginner', 'Intermediate', 'Advanced', 'Expert'],
-        required: true,
-        default: 'Beginner',
-    }
-}, { _id: false });
-
-const userSchema = new Schema({
-    username: {
-        type: String,
-        required: [true, 'Username is required'],
-        unique: true,
-        trim: true,
-    },
-    email: {
-        type: String,
-        required: [true, 'Email is required'],
-        unique: true,
-        trim: true,
-        lowercase: true,
-        match: [/.+\@.+\..+/, 'Please fill a valid email address'],
-    },
-    password: {
-        type: String,
-        required: [true, 'Password is required'],
-        minlength: 6,
-    },
-    profilePicture: {
-        type: String, 
-        default: '', 
-    },
-    interests: [{ 
-        type: Schema.Types.ObjectId,
-        ref: 'Tag',
-    }],
-    skillLevels: [skillLevelSchema],
-    learningGoals: [{ 
-        type: String,
-        trim: true,
-    }],
-}, { timestamps: true });
-
-userSchema.pre('save', async function (next) {
-    if (!this.isModified('password')) {
-        return next();
-    }
-    try {
-        const salt = await bcrypt.genSalt(10);
-        this.password = await bcrypt.hash(this.password, salt);
-        next();
-    } catch (err) {
-        next(err);
-    }
+const UserSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, 'Please provide your name'],
+    trim: true,
+  },
+  username: {
+    type: String,
+    required: [true, 'Please provide a username'],
+    unique: true,
+    trim: true,
+    lowercase: true,
+  },
+  email: {
+    type: String,
+    required: [true, 'Please provide an email'],
+    unique: true,
+    trim: true,
+    lowercase: true,
+    match: [
+      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+      'Please add a valid email',
+    ],
+  },
+  password: {
+    type: String,
+    minlength: 6,
+    select: false,
+  },
+  googleId: {
+    type: String,
+  },
+  currentGoal: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Goal',
+    default: null,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+  }
 });
 
-userSchema.methods.comparePassword = async function (candidatePassword) {
-    return bcrypt.compare(candidatePassword, this.password);
+UserSchema.pre('save', async function (next) {
+  if (!this.isModified('password') || !this.password) {
+    return next();
+  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
+});
+
+UserSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
 };
+
+UserSchema.pre('save', function(next) {
+  this.updatedAt = Date.now();
+  next();
+});
+
+module.exports = mongoose.model('User', UserSchema);

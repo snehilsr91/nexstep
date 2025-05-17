@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexStep - Personalized Learning Pathways</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #121212;
+            --accent-color: #4CAF50;
+            --text-light: #e0e0e0;
+        }
+
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background-color: #121212;
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+        }
+
+        .nav-link {
+            color: #e0e0e0 !important;
+            margin: 0 10px;
+        }
+
+        .hero-section {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn-get-started {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-get-started:hover {
+            background-color: #3e8e41;
+            transform: translateY(-2px);
+        }
+
+        .path-graphic {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .path-line {
+            stroke: #4CAF50;
+            stroke-width: 4;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 3s linear forwards;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .feature-card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .feature-card p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .features-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Nex<span style="color: #4CAF50;">Step</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item ms-3">
+
+                        <a class="nav-link" href="auth.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1>NexStep</h1>
+                    <p>NexStep is an intelligent course platform that provides personalized pathways based on user interests, skills, education, and goals. It connects to real resources with curated search results, making learning more efficient and effective. Our recommendation engine adapts to your progress, helping you discover your perfect learning path.</p>
+
+                    <a href="auth.html#register" class="btn btn-get-started">Get Started</a>
+                </div>
+                <div class="col-lg-6 position-relative">
+                    <svg class="path-graphic" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                        <path class="path-line" d="M50,250 C100,200 100,100 150,100 C200,100 200,200 250,150" />
+                        <circle cx="250" cy="150" r="10" fill="#4CAF50" />
+                        <circle cx="50" cy="250" r="10" fill="#4CAF50" />
+                        <g transform="translate(50, 250)">
+                            <rect x="-10" y="-30" width="20" height="20" fill="#4CAF50" />
+                            <line x1="0" y1="-10" x2="0" y2="-30" stroke="#4CAF50" stroke-width="2" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Discover Your Perfect Learning Path with<br>Our Advanced Recommendation Engine</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNENBRjUwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXR1cmUtaWNvbiI+PHBhdGggZD0iTTEyIDIyYzUuNTIzIDAgMTAtNC40NzcgMTAtMTBTMTcuNTIzIDIgMTIgMiAyIDYuNDc3IDIgMTJzNC40NzcgMTAgMTAgMTB6Ii8+PHBhdGggZD0iTTggMTRzMS41IDIgNCAyIDQtMiA0LTIiLz48cGF0aCBkPSJNOSA5aC4wMVYoLjAxSC4wMVY5eiIvPjxwYXRoIGQ9Ik0xNSA5aC4wMVYoLjAxSC4wMVY5eiIvPjwvc3ZnPg==" alt="Seamless User Onboarding" class="feature-icon">
+                        <h3>Seamless User Onboarding to Define Your Learning Goals Effortlessly</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNENBRjUwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXR1cmUtaWNvbiI+PHBhdGggZD0iTTE3IDIxdi0yYTQgNCAwIDAgMC00LTRIN2E0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSI5IiBjeT0iNyIgcj0iNCIvPjxwYXRoIGQ9Ik0yMyAyMXYtMmE0IDQgMCAwIDAtMy0zLjg3Ii8+PHBhdGggZD0iTTE2IDMuMTNhNCA0IDAgMCAxIDAgNy43NSIvPjwvc3ZnPg==" alt="Feedback System" class="feature-icon">
+                        <h3>Feedback System for Improved Suggestions</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNENBRjUwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXR1cmUtaWNvbiI+PHBhdGggZD0iTTQgMTlhMiAyIDAgMCAxLTItMlY3YTIgMiAwIDAgMSAyLTJoMTZhMiAyIDAgMCAxIDIgMnYxMGEyIDIgMCAwIDEtMiAySDR6Ii8+PHBvbHlsaW5lIHBvaW50cz0iNCAxNyAxMCAyMSAxNiAxNyIvPjxsaW5lIHgxPSIxMiIgeTE9IjEyIiB4Mj0iMTIuMDEiIHkyPSIxMiIvPjxsaW5lIHgxPSI4IiB5MT0iMTIiIHgyPSI4LjAxIiB5Mj0iMTIiLz48bGluZSB4MT0iMTYiIHkxPSIxMiIgeDI9IjE2LjAxIiB5Mj0iMTIiLz48L3N2Zz4=" alt="Personalized Learning" class="feature-icon">
+                        <h3>Personalized Learning Resources Tailored to Your Unique Interests and Needs</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="mb-4">Discover the power of personalized learning with our advanced recommendation engine.</h2>
+                    <p>Our recommendation engine takes in key information about you, including your interests and goals. We then match you with the best resources to help you learn. We're not just about what you learn, but also how you learn it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
